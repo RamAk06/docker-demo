@@ -6,13 +6,13 @@ pipeline {
     stages { 
         stage('SCM Checkout') {
             steps{
-            git 'https://github.com/ravdy/nodejs-demo.git'
+            git 'https://github.com/Bhargav-LNSN/docker-demo.git'
             }
         }
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t saikumar313/nodeapp:$BUILD_NUMBER .'
+                sh 'docker build -t bhargavchamp/docker_practice:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push saikumar313/nodeapp:$BUILD_NUMBER'
+                sh 'docker push bhargavchamp/docker_practice:$BUILD_NUMBER'
             }
         }
 }
