@@ -24,7 +24,17 @@ pipeline {
             steps{
                 sh 'docker push bhargavchamp/docker_practice:$BUILD_NUMBER'
             }
+        }stage('pull image') {
+            steps{
+                sh 'docker pull bhargavchamp/docker_practice:$BUILD_NUMBER'
+            }
         }
+      stage('run image') {
+            steps{
+                sh 'docker run -d -p 443:80 bhargavchamp/docker_practice:$BUILD_NUMBER'
+            }
+        }   
+        
 }
 post {
         always {
