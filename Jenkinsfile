@@ -24,7 +24,8 @@ pipeline {
             steps{
                 sh 'docker push bhargavchamp/docker_practice:$BUILD_NUMBER'
             }
-        }stage('pull image') {
+        }
+        stage('pull image') {
             steps{
                 sh 'docker pull bhargavchamp/docker_practice:$BUILD_NUMBER'
             }
