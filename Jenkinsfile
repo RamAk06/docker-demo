@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('docker-hub-bhargavchamp')
+    DOCKERHUB_CREDENTIALS = credentials('docker-hub-ashok1043')
     }
     stages { 
         stage('SCM Checkout') {
@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t bhargavchamp/docker_practice:$BUILD_NUMBER .'
+                sh 'docker build -t ashok1043/docker_practice:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
@@ -22,17 +22,17 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push bhargavchamp/docker_practice:$BUILD_NUMBER'
+                sh 'docker push ashok1043/docker_practice:$BUILD_NUMBER'
             }
         }
         stage('pull image') {
             steps{
-                sh 'docker pull bhargavchamp/docker_practice:$BUILD_NUMBER'
+                sh 'docker pull ashok1043/docker_practice:$BUILD_NUMBER'
             }
         }
       stage('run image') {
             steps{
-                sh 'docker run -d -p 443:80 bhargavchamp/docker_practice:$BUILD_NUMBER'
+                sh 'docker run -d -p 443:80 ashok1043/docker_practice:$BUILD_NUMBER'
             }
         }   
         
