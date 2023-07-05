@@ -6,7 +6,7 @@ pipeline {
     stages { 
         stage('SCM Checkout') {
             steps{
-            git 'https://github.com/Bhargav-LNSN/docker-demo.git'
+            git 'https://github.com/RamAk06/docker-demo.git'
             }
         }
 
